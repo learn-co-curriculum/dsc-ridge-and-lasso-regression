@@ -62,7 +62,7 @@ Lasso regression is very similar to Ridge regression, except that the magnitude 
 
 The resulting cost function looks like this:
 
-$$ \text{cost_function_ridge}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij} + b))^2 + \lambda \sum_{j=1}^p \mid m_j \mid$$
+$$ \text{cost_function_lasso}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij} + b))^2 + \lambda \sum_{j=1}^p \mid m_j \mid$$
 
 The name "Lasso" comes from ‘Least Absolute Shrinkage and Selection Operator’.
 
