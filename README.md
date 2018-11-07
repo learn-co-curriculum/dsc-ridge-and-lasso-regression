@@ -102,7 +102,8 @@ Below, we created train-test-splits, and created Ridge, Lasso and Linear regress
 # Perform test train split
 X_train , X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=12)
 
-# Build a Ridge, Lasso and regular linear regression model
+# Build a Ridge, Lasso and regular linear regression model. 
+# Note how in scikit learn, the regularization parameter is denoted by alpha (and not lambda)
 ridge = Ridge(alpha=0.5)
 ridge.fit(X_train, y_train)
 
@@ -190,7 +191,7 @@ You can clearly see how Lasso shrinks certain parameters to 0! The Ridge regress
 
 ## Additional reading
 
-Full code examples for Ridge and Lasso regression, advantages and disadvantages, and how to code ridge and Lasso in Python can be found [here](https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-ridge-lasso-regression-python/)
+Full code examples for Ridge and Lasso regression, advantages and disadvantages, and how to code ridge and Lasso in Python can be found [here](https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-ridge-lasso-regression-python/).
 
 Make sure to have a look at the Scikit-Learn documentation for [Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html) and [Lasso](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html).
 
