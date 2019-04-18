@@ -3,9 +3,9 @@
 
 ## Introduction
 
-At this point we've seen a number of criteria and algorithms for fitting regression models to data. We've seen the simple linear regression using ordinary least squares, and its more general regression of polynomial functions. We've also seen how we can overfit models to data using polynomials and interactions. With all of that, we began to explore other tools to analyze this general problem of overfitting versus underfitting, all this using train and test splits, bias and variance, and cross validation.
+At this point, you've seen a number of criteria and algorithms for fitting regression models to data. You've seen the simple linear regression using ordinary least squares, and its more general regression of polynomial functions. You've also seen how we can overfit models to data using polynomials and interactions. With all of that, you began to explore other tools to analyze this general problem of overfitting versus underfitting, all this using train and test splits, bias and variance, and cross validation.
 
-Now we're going to take a look at another way to tune our models. These methods all modify our mean squared error function that we were optimizing against. The modifications will add a penalty for large coefficient weights in our resulting model.
+Now you're going to take a look at another way to tune the models you create. These methods all modify the mean squared error function that you are optimizing against. The modifications will add a penalty for large coefficient weights in the resulting model.
 
 ## Objectives
 
@@ -32,7 +32,7 @@ where $k$ is the number of predictors.
 
 You've seen that when the number of predictors increases, your model complexity increases, with a higher chance of overfitting as a result. We've previously seen fairly ad-hoc variable selection methods (such as forward/backward selection), to simply select a few variables from a longer list of variables as predictors. 
 
-Now, instead of completely "deleting" certain predictors from a model (which is equal to setting coefficients equal to zero), wouldn't it be interesting so-called *penalized estimation* operates in way where parameter shrinkage effets are used to make some or 
+Now, instead of completely "deleting" certain predictors from a model (which is equal to setting coefficients equal to zero), wouldn't it be interesting so-called *penalized estimation* operates in a way where parameter shrinkage effects are used to make some or 
 all of the coefficients smaller in magnitude, closer to zero. Some of the penalties have the property to perform both variable selection (setting some coefficients exactly equal to zero) and shrinking the other coefficients. Ridge and Lasso regression are two examples of penalized estimation. There are multiple advantages to using these methods:
 
 - They reduce model complexity
@@ -44,14 +44,14 @@ Lasso and Ridge are two commonly used so-called **regularization techniques**. R
 
 ## Ridge regression
 
-In ridge regression, the linear regression cost function is changed by adding a penalty term to square of the magnitude of the coefficients.
+In ridge regression, the linear regression cost function is changed by adding a penalty term to the square of the magnitude of the coefficients.
 
 $$ \text{cost_function_ridge}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij} + b))^2 + \lambda \sum_{j=1}^p m_j^2$$
 
-Recall that you want to minimize your cost function, so by adding the penalty term $\lambda$, ridge regression puts a constraint on the coefficients $m$. This means that large coefficients penalize the optimization function. That's why ridge regression leads to a shrinkage of the coefficients and helps to reduce model complexity and multi-collinearity.
+Recall that you want to minimize your cost function, so by adding the penalty term $\lambda$, ridge regression puts a constraint on the coefficients $m$. This means that large coefficients penalize the optimization function. That's why ridge regression leads to a shrinkage of the coefficients and helps to reduce model complexity and multicollinearity.
 
 
-$\lambda$ is a so-called *hyperparameter*, which means you have to specify the value for lamda. For a small lambda, the outcome of your ridge regression will resemble a linear regression model. For large lambda, penalization will increase and more parameters will shrink.
+$\lambda$ is a so-called *hyperparameter*, which means you have to specify the value for lambda. For a small lambda, the outcome of your ridge regression will resemble a linear regression model. For large lambda, penalization will increase and more parameters will shrink.
 
 Ridge regression is often also referred to as **L2 Norm Regularization**
 
@@ -70,6 +70,10 @@ While looking similar to the definition of the ridge estimator, the effect of th
 
 Lasso regression is often also referred to as **L1 Norm Regularization**
 
+
+### Standardization before Regularization
+
+An important step before using either Lasso or Ridge regularization is to first standardize your data such that it is all on the same scale. Regularization is based on the concept of penalizing larger coefficients, so if you have features that are on different scales, some will get unfairly penalized. Below, you can see that we are using a MinMaxScaler to standardize our data to the same scale. A downside of standardization is that the value of the coefficients become less interpretable and must be transformed back to their original scale if you want to interpret how a one unit change in a feature impacts the target variable.
 
 ## An example using our `auto-mpg` data
 
@@ -95,7 +99,7 @@ transformed = scale.fit_transform(X)
 X = pd.DataFrame(transformed, columns = X.columns)
 ```
 
-Below, we created train-test-splits, and created Ridge, Lasso and Linear regression models
+Below, we've performed train-test-splits and fit Ridge, Lasso and Linear regression models. Notice that the Ridge and Lasso models have the parameter alpha, which is Scikit's version of $\lambda$ in the regularization cost functions.
 
 
 ```python
