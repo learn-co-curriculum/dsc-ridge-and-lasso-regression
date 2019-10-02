@@ -48,6 +48,12 @@ In ridge regression, the linear regression cost function is changed by adding a 
 
 $$ \text{cost_function_ridge}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij})-b)^2 + \lambda \sum_{j=1}^p m_j^2$$
 
+If you have two predictors the full equation would look like this (Notice that there is a penalty term `m` for each predictor in the model - in this case, two) : 
+
+$$ \text{cost_function_ridge}= \sum_{i=1}^n(y_i - \hat{y})^2 = $$
+
+$$ \sum_{i=1}^n(y_i - ((m_1x_{1i})-b)^2 + \lambda m_1^2 + (m_2x_{2i})-b)^2 + \lambda m_2^2)$$
+
 Recall that you want to minimize your cost function, so by adding the penalty term $\lambda$, ridge regression puts a constraint on the coefficients $m$. This means that large coefficients penalize the optimization function. That's why ridge regression leads to a shrinkage of the coefficients and helps to reduce model complexity and multicollinearity.
 
 
@@ -63,6 +69,12 @@ Lasso regression is very similar to Ridge regression, except that the magnitude 
 The resulting cost function looks like this:
 
 $$ \text{cost_function_lasso}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij})-b)^2 + \lambda \sum_{j=1}^p \mid m_j \mid$$
+
+If you have two predictors the full equation would look like this (Notice that there is a penalty term (m) for each predictor in the model - in this case, two) : 
+
+$$ \text{cost_function_lasso}= \sum_{i=1}^n(y_i - \hat{y})^2 = $$
+
+$$\sum_{i=1}^n(y_i - ((m_1x_{1i})-b)^2 + \lambda \mid m_1 \mid) + ((m_2x_{2i})-b)^2 + \lambda \mid m_2 \mid) $$
 
 The name "Lasso" comes from ‘Least Absolute Shrinkage and Selection Operator’.
 
