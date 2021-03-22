@@ -121,7 +121,7 @@ X_train_transformed = scale.fit_transform(X_train)
 X_test_transformed = scale.transform(X_test)
 ```
 
-We will not fit the Ridge, Lasso, and Linear regression models to the transformed training data. Notice that the Ridge and Lasso models have the parameter alpha, which is Scikit-Learn's version of $\lambda$ in the regularization cost functions.
+We will now fit the Ridge, Lasso, and Linear regression models to the transformed training data. Notice that the Ridge and Lasso models have the parameter alpha, which is Scikit-Learn's version of $\lambda$ in the regularization cost functions.
 
 
 ```python
