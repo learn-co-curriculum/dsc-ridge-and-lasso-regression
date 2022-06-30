@@ -49,7 +49,7 @@ In ridge regression, the cost function is changed by adding a penalty term to th
 
 $$ \text{cost_function_ridge}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij})-b)^2 + \lambda \sum_{j=1}^p m_j^2$$
 
-If you have two predictors the full equation would look like this (notice that there is a penalty term `m` for each predictor in the model - in this case, two) : 
+If you have two predictors the full equation would look like this (notice that there is a penalty term $\lambda m^2$ for each predictor in the model - in this case, two) : 
 
 $$ \text{cost_function_ridge}= \sum_{i=1}^n(y_i - \hat{y})^2 = $$
 
@@ -67,13 +67,13 @@ Lasso regression is very similar to ridge regression, except that the magnitude 
 
 The resulting cost function looks like this:
 
-$$ \text{cost_function_lasso}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij})-b)^2 + \lambda \sum_{j=1}^p \mid m_j \mid$$
+$$ \text{cost_function_lasso}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij})-b)^2 + \lambda \sum_{j=1}^p \vert m_j \vert$$
 
-If you have two predictors the full equation would look like this (notice that there is a penalty term `m` for each predictor in the model - in this case, two): 
+If you have two predictors the full equation would look like this (notice that there is a penalty term $\lambda \vert m \vert$ for each predictor in the model - in this case, two): 
 
 $$ \text{cost_function_lasso}= \sum_{i=1}^n(y_i - \hat{y})^2 = $$
 
-$$\sum_{i=1}^n(y_i - ((m_1x_{1i})-b)^2 + \lambda \mid m_1 \mid) + ((m_2x_{2i})-b)^2 + \lambda \mid m_2 \mid) $$
+$$\sum_{i=1}^n(y_i - ((m_1x_{1i})-b)^2 + \lambda \vert m_1 \vert) + ((m_2x_{2i})-b)^2 + \lambda \vert m_2 \vert) $$
 
 The name "lasso" comes from "Least Absolute Shrinkage and Selection Operator".
 
