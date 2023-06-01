@@ -20,11 +20,11 @@ You will be able to:
 
 From an earlier lesson, you know that when solving for a linear regression, you can express the cost function as
 
-$$ \text{cost_function}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - (mx_i + b))^2$$
+$$ \text{cost function}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - (mx_i + b))^2$$
 
 This is the expression for simple linear regression (for 1 predictor $x$). If you have multiple predictors, you would have something that looks like:
 
-$$ \text{cost_function}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij} ) -b )^2$$
+$$ \text{cost function}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij} ) -b )^2$$
 
 where $k$ is the number of predictors.
 
@@ -47,11 +47,11 @@ Two commonly-used models that use penalized estimation are ***ridge regression**
 
 In ridge regression, the cost function is changed by adding a penalty term to the square of the magnitude of the coefficients.
 
-$$ \text{cost_function_ridge}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij})-b)^2 + \lambda \sum_{j=1}^p m_j^2$$
+$$ \text{cost function ridge}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij})-b)^2 + \lambda \sum_{j=1}^p m_j^2$$
 
 If you have two predictors the full equation would look like this (notice that there is a penalty term $\lambda m^2$ for each predictor in the model - in this case, two) : 
 
-$$ \text{cost_function_ridge}= \sum_{i=1}^n(y_i - \hat{y})^2 = $$
+$$ \text{cost function ridge}= \sum_{i=1}^n(y_i - \hat{y})^2 = $$
 
 $$ \sum_{i=1}^n(y_i - ((m_1x_{1i})-b)^2 + \lambda m_1^2 + (m_2x_{2i})-b)^2 + \lambda m_2^2)$$
 
@@ -67,11 +67,11 @@ Lasso regression is very similar to ridge regression, except that the magnitude 
 
 The resulting cost function looks like this:
 
-$$ \text{cost_function_lasso}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij})-b)^2 + \lambda \sum_{j=1}^p \vert m_j \vert$$
+$$ \text{cost function lasso}= \sum_{i=1}^n(y_i - \hat{y})^2 = \sum_{i=1}^n(y_i - \sum_{j=1}^k(m_jx_{ij})-b)^2 + \lambda \sum_{j=1}^p \vert m_j \vert$$
 
 If you have two predictors the full equation would look like this (notice that there is a penalty term $\lambda \vert m \vert$ for each predictor in the model - in this case, two): 
 
-$$ \text{cost_function_lasso}= \sum_{i=1}^n(y_i - \hat{y})^2 = $$
+$$ \text{cost function lasso}= \sum_{i=1}^n(y_i - \hat{y})^2 = $$
 
 $$\sum_{i=1}^n(y_i - ((m_1x_{1i})-b)^2 + \lambda \vert m_1 \vert) + ((m_2x_{2i})-b)^2 + \lambda \vert m_2 \vert) $$
 
