@@ -74,7 +74,7 @@ If you have two predictors the full equation would look like this (notice that t
 
 $$ \text{cost function lasso}= \sum_{i=1}^n(y_i - \hat{y})^2 = $$
 
-$$\sum_{i=1}^n(y_i - ((m_1x_{1i})-b)^2 + \lambda \vert m_1 \vert) + ((m_2x_{2i})-b)^2 + \lambda \vert m_2 \vert) $$
+$$ \sum_{i=1}^n\Big(y_i - (m_1x_{1i} + m_2x_{2i}) - b\Big)^2  +  \lambda \vert m_1 \vert ^2  + \lambda \vert m_2 \vert ^2$$
 
 The name "lasso" comes from "Least Absolute Shrinkage and Selection Operator".
 
