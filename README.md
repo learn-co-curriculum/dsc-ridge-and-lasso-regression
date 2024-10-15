@@ -54,7 +54,7 @@ If you have two predictors the full equation would look like this (notice that t
 
 $$ \text{cost function ridge}= \sum_{i=1}^n(y_i - \hat{y})^2 = $$
 
-$$ \sum_{i=1}^n(y_i - ((m_1x_{1i})-b)^2 + \lambda m_1^2 + (m_2x_{2i})-b)^2 + \lambda m_2^2)$$
+$$ \sum_{i=1}^n\Big(y_i - (m_1x_{1i} + m_2x_{2i}) - b\Big)^2  + \lambda m_1^2 + \lambda m_2^2$$
 
 Remember that you want to minimize your cost function, so by adding the penalty term $\lambda$, ridge regression puts a constraint on the coefficients $m$. This means that large coefficients penalize the optimization function. That's why **ridge regression leads to a shrinkage of the coefficients** and helps to reduce model complexity and multicollinearity.
 
